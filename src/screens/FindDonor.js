@@ -5,14 +5,15 @@ import {
   FlatList,
   Alert,
   SafeAreaView,
+  Image
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {style} from './style/style_FindDonor';
 import DropDownPicker from 'react-native-dropdown-picker';
 import PrimaryButton from '../helpers/components/PrimaryButton';
 import {colors} from '../layout/systemLayout';
-import {SC} from '../services/serverCall';
-import axios from 'axios';
+import SecondaryButton from '../helpers/components/SecondaryButton';
+
 
 const FindDonor = () => {
   const [isOpenBloodGroup, setIsOpenBloodGroup] = useState(false);
@@ -32,26 +33,34 @@ const FindDonor = () => {
   const bloodGroup = setCurrentBloodGroup
   //get data for database and display in flat list
   
-  const fetchData = async () => {
-    try {
+  const fetchData =  () => {
+    
       if (!currentBloodGroup) {
         Alert.alert('Please select a blood group');
         return;
       }
-      const response = await fetch(`http://172.18.192.1:3333/api/users/${currentBloodGroup}`);
-    
-      const data = response.json();
-      setData(data);
-      console.log('responsee=========>',setData(data))
-      return data;
-    } catch (error) {
-      // console.error('Error fetching data:', error);
-    console.log('error===============>',error)
-      return [];
-    }
+
+    fetch(`http://172.17.160.1:3333/api/users/${currentBloodGroup}`)
+    .then(response => response.json())
+    .then(jsonResponse => setData(jsonResponse))
+    .catch(error => console.log(error))
   };
+
   const renderItem = ({item}) => (
-    <View style={style.request}>{JSON.stringify(item.name)}</View>
+   
+    <View style={style.Donor}>
+      
+      <Image source={{ uri: item.profile_picture }} style={style.profile}/>
+      <View>
+     
+        <Text style={style.userName}>{item.name}</Text>
+      </View> 
+      <View style={style.button}>
+        <SecondaryButton primary title={'Accept'} onPress={()=>{Alert.alert('Your request is sent.')}}/>
+        <SecondaryButton primary title={'Decline'} onPress={()=>{Alert.alert('reject')}}/>
+      </View>
+      </View>
+
   );
 
   // on continue
@@ -101,18 +110,15 @@ const FindDonor = () => {
         />
         <View style={style.DonorList}>
           <Text style={style.heading}>Donors</Text>
-          <SafeAreaView>
-          {data.length > 0 ? (
-  <FlatList
-    data={data}
-    renderItem={renderItem}
-    keyExtractor={(item) => item.userId.toString()}
-  />
-) : (
-  <Text>No donors available.</Text>
-)}
-
-          </SafeAreaView>
+          <FlatList
+        vertical
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        data={data}
+        // renderItem={renderItem}
+        renderItem={renderItem}
+        keyExtractor={(item,index) => index.toString()}
+      />
         </View>
       </View>
     </View>
