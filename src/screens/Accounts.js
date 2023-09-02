@@ -2,8 +2,6 @@ import {View, TextInput, Alert, Image,TouchableOpacity, Text} from 'react-native
 import {React, useState,useRef} from 'react';
 import {style} from './style/style_Singup';
 import PrimaryButton from '../helpers/components/PrimaryButton';
-
-import {Picker} from '@react-native-picker/picker';
 import { Dropdown } from 'react-native-element-dropdown';
 import DropDownPicker from 'react-native-dropdown-picker';
 
@@ -79,15 +77,25 @@ const Accounts = ({navigation}) => {
           style={style.inputField}
         />
           <Text style={{textAlign:'left',fontSize:18,alignSelf:'flex-start',marginLeft:50}}>Blood Group</Text>
-         <DropDownPicker 
+         {/* <DropDownPicker 
          items={BloodGroup}
-         open={isOpenBloodGroup}
+         isOpenBloodGroup={isOpenBloodGroup}
          setIsOpenBloodGroup={()=>{setIsOpenBloodGroup(!isOpenBloodGroup)}}
-         value={currentBloodGroup}
-         setValue={(value)=>{setCurrentBloodGroup(value)}}
+         currentBloodGroup={currentBloodGroup}
+         setCurrentBloodGroup={(value)=>{setCurrentBloodGroup(value)}}
          placeholder='Select your Blood Group'
          style={{width:'80%',alignSelf:'center', margin:10}}
-       />
+       /> */}
+        <DropDownPicker 
+         
+          items={BloodGroup}
+          open={isOpenBloodGroup}
+          setOpen={()=>{setIsOpenBloodGroup(!isOpenBloodGroup)}}
+          value={currentBloodGroup}
+          setValue={(value)=>{setCurrentBloodGroup(value)}}
+          placeholder='Select your Blood Group'
+          style={{width:'80%',alignSelf:'center',margin:10}}
+        />
         <PrimaryButton
           primary
           title="Save"
