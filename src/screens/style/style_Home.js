@@ -23,11 +23,15 @@ const style = StyleSheet.create({
         fontWeight:'bold',
         fontSize:30,
        
-        color:colors.Secondary
+        color:colors.SwipeBtn
       },
       headerImage:{
         width:50,
         height:50
+      },
+      adsContainer:{
+        width:'90%',
+        height:"5%"
       },
       userDetails:{
         width:"90%",
@@ -44,16 +48,28 @@ const style = StyleSheet.create({
         color:colors.SwipeBtn
       },
       detailsBox:{
-        paddingLeft:20,
+        paddingHorizontal:20,
       },
       userBloodGroup:{
         flexDirection:"row",
-        justifyContent:'space-around',
-        
+        justifyContent:'space-between',
+        margin:10
+      },
+      Donation:{
+        flexDirection:"row",
+        justifyContent:'space-between',
+        margin:10
+      },
+      TotalDonation:{
+        flexDirection:"row",
+        justifyContent:'space-between',
+        margin:10
       },
       bloodGroup:{
-        backgroundColor
+        backgroundColor:colors.dark,
+        width:10
       }
+     
   });
   
   export { style};
