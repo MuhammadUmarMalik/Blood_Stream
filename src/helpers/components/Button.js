@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   btnText: {
     color: colors.Secondary,
-    fontSize:25,
+    fontSize:21,
     fontWeight:'bold',
     textAlign:'right'
   },

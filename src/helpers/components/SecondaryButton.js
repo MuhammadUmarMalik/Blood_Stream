@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
   borderRadius: 10,
   width: "100%",
   marginVertical: 10,
+  marginHorizontal:10,
   padding:10,
   color: colors.Secondary,
   justifyContent:'center',

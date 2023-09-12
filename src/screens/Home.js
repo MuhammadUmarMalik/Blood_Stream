@@ -14,7 +14,7 @@ export default function Home({navigation}) {
   const fetchData = async () => {
     try {
      
-      const response = await fetch(`http://172.17.160.1:3333/api/users/`);
+      const response = await fetch(`http://192.168.43.101:3333/api/users/`);
      
       const json = await response.json();
       console.log('json.................',json)
@@ -40,7 +40,7 @@ export default function Home({navigation}) {
             Welcome
           </Text>
           <Text style={style.infoName}>
-            Umar 
+            {/* {item.name} */}
           </Text>
         </View>
         <Image
@@ -58,11 +58,15 @@ export default function Home({navigation}) {
         <View style={style.detailsBox}>
          <View style={style.userBloodGroup}>
          <Text>Your Blood Group 🩸</Text>
-            <Text sytle={style.bloodGroup}>A</Text>
+            <Text sytle={style.bloodGroup}>
+              {/* {item.blood_group} */}
+            </Text>
          </View>
          <View style={style.Donation}>
          <Text>Last Time Donation</Text>
-            <Text>01-08-2023</Text>
+            <Text>
+              {/* {item.donation_date} */}
+              </Text>
          </View>
          <View style={style.TotalDonation}>
          <Text>Total Donation</Text>

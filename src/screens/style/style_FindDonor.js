@@ -45,19 +45,31 @@ const style = StyleSheet.create({
         padding: 10,
         alignSelf:'flex-start'
     },
-
-   
+  
+   infoDetails:{
+      flex:1,
+      flexDirection:'row',
+      width:"100%",
+      flexDirection:'column',
+      padding:10,
+      marginLeft:10
+   },
     userName:{
         fontSize:20,
         fontWeight:'bold',
         alignSelf:'flex-start',
         textAlign:'left',
-        fon
+        marginLeft:10,
+        
     },
     profile:{width:80,height:80,borderRadius:50,resizeMode:'cover'},
    button:{
-    width:'20%',
-    flexDirection:"column",
+    width:'40%',
+    flexDirection:"row",
+    justifyContent:'space-between',
+    alignItems:'center',
+    marginTop:10
+
     // alignSelf:'flex-end'
     
     

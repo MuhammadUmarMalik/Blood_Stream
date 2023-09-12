@@ -69,18 +69,8 @@ const Navigator = ({props:any}) => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {isLoggedIn ? (
-          // Screens for logged in users
-          <Stack.Group>
+            {/* <Stack.Screen name="Signin" component={Signin} options={{headerShown:false}}/> */}
             <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown:false}}/>
-          </Stack.Group>
-        ) : (
-          // Auth screens
-          <Stack.Group screenOptions={{headerShown: false}}>
-            <Stack.Screen name="Signin" component={Signin} options={{headerShown:false}}/>
-            <Stack.Screen name="Signup" component={Signup} options={{headerShown:false}}/>
-          </Stack.Group>
-        )}
       </Stack.Navigator>
     </NavigationContainer>
   );
