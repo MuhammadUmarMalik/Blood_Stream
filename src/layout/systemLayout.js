@@ -1,12 +1,14 @@
 const colors = {
-    primary: "#FF6964",
-    Secondary: "#ffff",
-    Accsent: "#000000",
-    dark: "#A7BAF2",
-    highlight: "#6273D9",
-    SwipeBtn:"#D3283B",
-    GradientSecondary:'#FFC291',
-    lightPrimary:'#FF696'
+  SecondaryText: "#b6b6b6",
+  PrimaryTextColor: "#252525",
+  BackgroundColor: "#fff",
+  IconColor: "#aaa3",
+  Acent: "#e55454fc",
+  SecondaryText1: "#e6e6e6",
+  PrimaryColor: "#e65656",
+  PRIMARYCOLOR: "#d9224c",
+  OutlineColor: "#e9f1ff",
+  Btn: "#3497f9", 
   };
   const typography = {
     subtitle: {
@@ -25,6 +27,8 @@ const colors = {
     },
   };
 
-  
+  {
+   
+  }
   export { colors, typography};
   

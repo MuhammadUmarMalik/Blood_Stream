@@ -40,7 +40,7 @@ const FindDonor = () => {
         return;
       }
 
-    fetch(`http://192.168.43.101:3333/api/users/${currentBloodGroup}`)
+    fetch(`http://127.0.0.1:3333/api/users/${currentBloodGroup}`)
     .then(response => response.json())
     .then(jsonResponse => setData(jsonResponse))
     .catch(error => console.log(error))
@@ -56,7 +56,7 @@ const FindDonor = () => {
         <Text style={style.userName}>{item.name}</Text>
       
       <View style={style.button}>
-        <SecondaryButton primary title={'Accept'} onPress={()=>{Alert.alert('Your request is sent.')}}/>
+        <SecondaryButton primary title={'Send'} onPress={()=>{Alert.alert('Your request is sent.')}}/>
         <SecondaryButton primary title={'Decline'} onPress={()=>{Alert.alert('reject')}}/>
       </View>
       </View>

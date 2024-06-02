@@ -18,6 +18,7 @@ const style = StyleSheet.create({
       justifyContent:'space-between',
       paddingHorizontal:10,
       padding:10,
+      marginBottom:10
       
     },
    
@@ -36,11 +37,12 @@ const style = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'space-between',
         alignItems:'center',
-        backgroundColor:colors.Secondary
-
+        backgroundColor:colors.GradientSecondary,
+        padding:10,
+        marginBottom:10
     },
     heading:{
-        fontSize:24,
+        fontSize:24, 
         fontWeight:'bold',
         padding: 10,
         alignSelf:'flex-start'

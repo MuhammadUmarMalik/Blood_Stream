@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
-import LinearGradient from 'react-native-linear-gradient';
+
 import {colors,typography} from '../layout/systemLayout';
-import Home from './Accounts'
+
 const Splash = () => {
   useEffect(() => {
     // Simulate a delay or any other initialization logic
@@ -16,15 +16,7 @@ const Splash = () => {
 
   return (
     <View style={styles.container}>
-       <LinearGradient
-        colors={[colors.primary, colors.GradientSecondary]}
-        style={styles.container}
-        start={{ x: 1, y: 0 }}
-        end={{ x: 0, y: 1 }}
-      >
-
-        <Text style={styles.heading} >Blood Stream</Text>
-        </LinearGradient>
+        <Image source={require('../assets/bloodStream_logo.png')} style={styles.logo}></Image>
     </View>
   );
 };
@@ -33,14 +25,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent:'center',
+    alignItems:'center'
+    
   },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-  heading:{
-  alignSelf:'center',
-  color:colors.Secondary,
-  fontFamily:'Inter',
-  fontSize:30,
-  fontStyle:'normal',
-  fontWeight:'bold'
+  logo:{
+    width:112,
+    height:182.737,
+    flexShrink:0,
   }
  
 });

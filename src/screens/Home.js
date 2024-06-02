@@ -6,7 +6,7 @@ import { colors } from '../layout/systemLayout'
 import { style } from './style/style_Home'
 import PrimaryButton from '../helpers/components/PrimaryButton'
 export default function Home({navigation}) {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   useEffect(() => {
     fetchData()
   }, [])
@@ -14,11 +14,12 @@ export default function Home({navigation}) {
   const fetchData = async () => {
     try {
      
-      const response = await fetch(`http://192.168.43.101:3333/api/users/`);
+      const response = await fetch(`http://127.0.0.1:3333/api/users/1`);
      
       const json = await response.json();
       console.log('json.................',json)
       setData(json)
+      console.log(json.data)
       return json.data;
     } catch (error) {
       console.error(error);
@@ -40,7 +41,7 @@ export default function Home({navigation}) {
             Welcome
           </Text>
           <Text style={style.infoName}>
-            {/* {item.name} */}
+            {/* {json.name}a */}
           </Text>
         </View>
         <Image

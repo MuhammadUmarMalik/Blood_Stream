@@ -2,6 +2,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from "react";
 import Splash from './src/screens/Splash';
 import Navigator from './src/navigator/Navigator'
+import Intro from './src/screens/Intro';
+import Signin from './src/screens/Signin';
 
 export default function App() {
   const [appInitialized, setAppInitialized] = React.useState(false);
@@ -26,7 +28,7 @@ export default function App() {
   return (
     <View style={{flex:1,justifyContent:'center'}}>
       {/* <Text>Open up App.js to start working on your app!</Text> */}
-      <Navigator/>
+      <Intro/>
     </View>
   );
 }
