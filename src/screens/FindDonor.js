@@ -34,20 +34,22 @@ const FindDonor = () => {
   //get data for database and display in flat list
   
   const fetchData =  () => {
-    
+    try {
       if (!currentBloodGroup) {
         Alert.alert('Please select a blood group');
         return;
       }
-      const response = await fetch(`http://172.18.192.1:3333/api/users/${currentBloodGroup}`);
-    
+      const response = fetch(
+        `http://172.18.192.1:3333/api/users/${currentBloodGroup}`,
+      );
+
       const data = response.json();
       setData(data);
-      console.log('responsee=========>',setData(data))
+      console.log('responsee=========>', setData(data));
       return data;
     } catch (error) {
       // console.error('Error fetching data:', error);
-    console.log('error===============>',error)
+      console.log('error===============>', error);
       return [];
     }
   };

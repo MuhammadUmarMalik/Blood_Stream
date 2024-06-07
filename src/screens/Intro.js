@@ -4,33 +4,36 @@ import React from 'react'
 import Signin from './Signin'
 import { colors } from '../layout/systemLayout'
 import Signup from './Signup'
-const Intro = () => {
-    return (
-        <View style={styles.container}>
+const Intro = ({navigation}) => {
+  return (
+    <View style={styles.container}>
+      <Image
+        source={require('../assets/bloodStream_logo.png')}
+        style={styles.logo}></Image>
 
-            <Image source={require('../assets/bloodStream_logo.png')} style={styles.logo}></Image>
+      <View style={styles.buttons}>
+        <TouchableOpacity
+          style={styles.loginBtn}
+          onPress={() => {
+            navigation.navigate('Signin');
+          }}>
+          <Text style={styles.loginTxt}>LOG IN</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.SignupBtn}
+          onPress={() => {
+            navigation.navigate(Signup);
+          }}>
+          <Text style={styles.CreateTxt}>CREATE ACCOUNT</Text>
+        </TouchableOpacity>
+      </View>
 
-            <View style={styles.buttons}>
-                <TouchableOpacity
-                    style={styles.loginBtn}
-
-                    onPress={Signin}>
-                    <Text style={styles.loginTxt}>LOG IN</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.SignupBtn}
-
-                    onPress={Signup}>
-                    <Text style={styles.CreateTxt}>CREATE ACCOUNT</Text>
-                </TouchableOpacity>
-            </View>
-            
-            <Image source={require('../assets/waves.png')} style={styles.waves}></Image>
-        
-            
-        </View>
-    )
-}
+      <Image
+        source={require('../assets/waves.png')}
+        style={styles.waves}></Image>
+    </View>
+  );
+};
 
 export default Intro
 
