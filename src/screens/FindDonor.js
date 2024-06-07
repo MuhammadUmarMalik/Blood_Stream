@@ -39,29 +39,21 @@ const FindDonor = () => {
         Alert.alert('Please select a blood group');
         return;
       }
-
-    fetch(`http://127.0.0.1:3333/api/users/${currentBloodGroup}`)
-    .then(response => response.json())
-    .then(jsonResponse => setData(jsonResponse))
-    .catch(error => console.log(error))
+      const response = await fetch(`http://172.18.192.1:3333/api/users/${currentBloodGroup}`);
+    
+      const data = response.json();
+      setData(data);
+      console.log('responsee=========>',setData(data))
+      return data;
+    } catch (error) {
+      // console.error('Error fetching data:', error);
+    console.log('error===============>',error)
+      return [];
+    }
   };
 
   const renderItem = ({item}) => (
-   
-    <View style={style.Donor}>
-      
-      <Image source={{ uri: item.profile_picture }} style={style.profile}/>
-      <View style={style.infoDetails}>
-     
-        <Text style={style.userName}>{item.name}</Text>
-      
-      <View style={style.button}>
-        <SecondaryButton primary title={'Send'} onPress={()=>{Alert.alert('Your request is sent.')}}/>
-        <SecondaryButton primary title={'Decline'} onPress={()=>{Alert.alert('reject')}}/>
-      </View>
-      </View>
-      </View> 
-
+    <View style={style.request}>{JSON.stringify(item.name)}</View>
   );
 
   // on continue

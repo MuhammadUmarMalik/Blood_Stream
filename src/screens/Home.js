@@ -6,7 +6,7 @@ import { colors } from '../layout/systemLayout'
 import { style } from './style/style_Home'
 import PrimaryButton from '../helpers/components/PrimaryButton'
 export default function Home({navigation}) {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
   useEffect(() => {
     fetchData()
   }, [])
@@ -14,12 +14,11 @@ export default function Home({navigation}) {
   const fetchData = async () => {
     try {
      
-      const response = await fetch(`http://127.0.0.1:3333/api/users/1`);
+      const response = await fetch(`http://172.17.160.1:3333/api/users/`);
      
       const json = await response.json();
       console.log('json.................',json)
       setData(json)
-      console.log(json.data)
       return json.data;
     } catch (error) {
       console.error(error);
@@ -41,7 +40,7 @@ export default function Home({navigation}) {
             Welcome
           </Text>
           <Text style={style.infoName}>
-            {/* {json.name}a */}
+            Umar 
           </Text>
         </View>
         <Image
@@ -59,9 +58,7 @@ export default function Home({navigation}) {
         <View style={style.detailsBox}>
          <View style={style.userBloodGroup}>
          <Text>Your Blood Group 🩸</Text>
-            <Text sytle={style.bloodGroup}>
-              {/* {item.blood_group} */}
-            </Text>
+            <Text sytle={style.bloodGroup}>A</Text>
          </View>
          <View style={style.Donation}>
          <Text>Last Time Donation</Text>
